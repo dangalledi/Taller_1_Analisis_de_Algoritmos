@@ -13,7 +13,7 @@ void participantes();
 /**
  * Función funcion donde valida los caracteres del lenguaje
  */
-bool ValidacionDelLenguaje(char argumento);
+bool ValidacionDelLenguaje( string argumento );
 
 /**
  * Taller computacional
@@ -32,7 +32,7 @@ int main( int argc, char* argv[] ) {
             return 0;
         }else {
             for (size_t n = 1; n < argumento.length(); n++){
-                if ( !ValidacionDelLenguaje( argumento[n] ) ){
+                if ( ValidacionDelLenguaje( argumento ) == false ){  // a , b , o , *
                     cout << "No cumple la condición" << endl ;
                     return 0;
                 }if (argumento[n]=='*'){  //Validacion de contenido no contiene a "*"
@@ -52,13 +52,12 @@ int main( int argc, char* argv[] ) {
 };
 
 
-bool ValidacionDelLenguaje( char argumento[] ){
-    for (size_t n = 1; n < strlen(argumento); n++){
-        cout << n <<": " << argumento[ n ] << '\n';
+bool ValidacionDelLenguaje( string argumento ){
+    for (size_t n = 1; n < argumento.length(); n++){
         if (argumento[ n ] == 'a' || argumento[ n ] == 'b' || argumento[ n ] == 'o' || argumento[ n ] == '∗'  ) 
-                return true;
+            return true;
         else 
-            false;
+            return false;
 
     }
 };
