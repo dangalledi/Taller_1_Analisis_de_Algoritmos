@@ -11,6 +11,11 @@ using namespace std;
 void participantes();
 
 /**
+ * Función funcion donde valida los caracteres del lenguaje
+ */
+bool ValidacionDelLenguaje(char argumento);
+
+/**
  * Taller computacional
  * @param argc cantidad de argumentos
  * @param argv argumentos
@@ -18,27 +23,44 @@ void participantes();
  */
 int main( int argc, char* argv[] ) {
 
-    /**
-     * Incluir acá la lógica del programa
-     * 
-     */
-
-    string argumento = argv[1];
+    string argumento = argv[1];  // char -> string
 
     if (argc > 1) {
         // @TODO programar proyecto
-        if (argv[ 1 ] == 'a'){
-            cout << "The name used to start the program: " << argv[ 0 ]
-                << "\nArguments are:\n";
-            
-        }if( argc[1]! == 'a'){
-            cout << "No cumple la condición";
-    }else {
+        if (argumento[ 0 ] != 'a'){   // validacion de entrada x empiezacon"a" 
+            cout << "No cumple la condición" << endl ;
+            return 0;
+        }else {
+            for (size_t n = 1; n < argumento.length(); n++){
+                if ( !ValidacionDelLenguaje( argumento[n] ) ){
+                    cout << "No cumple la condición" << endl ;
+                    return 0;
+                }if (argumento[n]=='*'){  //Validacion de contenido no contiene a "*"
+                    cout << "No cumple la condición" << endl ;
+                    return 0;
+                }
+            }
+            cout << "Palabra valida: "<< argv[1] << endl;
+            return EXIT_SUCCESS;
+        }    
+   
+    }else{
         // Mostrar los integrantes
         participantes();
-    }
+    }   
     return EXIT_SUCCESS;
-}
+};
+
+
+bool ValidacionDelLenguaje( char argumento[] ){
+    for (size_t n = 1; n < strlen(argumento); n++){
+        cout << n <<": " << argumento[ n ] << '\n';
+        if (argumento[ n ] == 'a' || argumento[ n ] == 'b' || argumento[ n ] == 'o' || argumento[ n ] == '∗'  ) 
+                return true;
+        else 
+            false;
+
+    }
 };
 
 void participantes() {
@@ -46,22 +68,4 @@ void participantes() {
     std::cout << std::endl << "Edgar Matus"; 
     std::cout << std::endl << "Oscar Peñaloza"; 
     std::cout << std::endl << "Daniela Galleguillos" << std::endl; 
-};
-
-bool ValidacionDelLenguaje(string argumento[] ){
-
-int validacionLargoArgumento = 0;
-
-    for (int n = 1; n < argumento.length(); n++)
-        cout << n << ": " << argumento[ n ] << '\n';
-        if (argumento[ n ] == 'a' || argumento[ n ] == 'b' || argumento[ n ] == 'o' || argumento[ n ] == '∗'  ) {
-            cout<< "Holiiii" << endl;
-            validacionLargoArgumento++;        
-            }
-    }
-    if (validacionLargoArgumento == argumento.length() ){
-        return true;
-    }else{
-        return false;
-    }
 }
