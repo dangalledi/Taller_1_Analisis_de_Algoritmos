@@ -28,10 +28,9 @@ void participantes();
 
 int main( int argc, char* argv[] ) {
 
-    string argumento = argv[1];  // char -> string
-
     if (argc == 2) {
         // @TODO programar proyecto
+        string argumento = argv[1];  // char -> string
         if ( ValidacionDelLenguaje( argumento ) == false ){   // validacion del lenguaje a , b , o , *
             cout << "No cumple la condición" << endl ;
             return 0;
