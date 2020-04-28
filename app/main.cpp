@@ -57,11 +57,11 @@ bool ValidacionDelLenguaje( string argumento ){
 
     int contador =0;
 
-    for (size_t n = 0; n < argumento.length(); n++){
-        if (argumento[ n ] == 'a' || argumento[ n ] == 'b' || argumento[ n ] == 'o' || argumento[ n ] == '\u002A'  ) 
+    for (size_t n = 0; n < argumento.length()-1; n++){
+        if (argumento[ n ] == 'a' || argumento[ n ] == 'b' || argumento[ n ] == 'o' || argumento[ n ] == '\u2217' ) 
             contador++;
     }
-    if (contador == argumento.length())
+    if (contador == argumento.length()-1)
         return true;
     else 
         return false;
@@ -71,7 +71,7 @@ bool CondicionDelLenguaje(string argumento){
   if (argumento[0]=='a')
     {
     for(size_t n =1; n < argumento.length()-1; n++){
-      if(argumento[n] == '\u2217')
+      if(argumento[n] == '\u002A')
         return false;
       }
     }
