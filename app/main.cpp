@@ -83,7 +83,7 @@ return true;
 
 bool contiene_asterisco(string valor){
 
-    if ( valor.find("*",0) != -1){
+    if ( valor.find("∗",0) != -1){
         return true;
     }
 
