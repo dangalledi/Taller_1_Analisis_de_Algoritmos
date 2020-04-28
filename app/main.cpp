@@ -28,6 +28,9 @@ void participantes();
 
 int main( int argc, char* argv[] ) {
 
+    cout << "\u002A" << endl ;
+    cout << "\u2217" << endl ;
+
     if (argc == 2) {
         // @TODO programar proyecto
         string argumento = argv[1];  // char -> string
@@ -55,7 +58,7 @@ bool ValidacionDelLenguaje( string argumento ){
     int contador =0;
 
     for (size_t n = 0; n < argumento.length(); n++){
-        if (argumento[ n ] == 'a' || argumento[ n ] == 'b' || argumento[ n ] == 'o' || argumento[ n ] == '∗'  ) 
+        if (argumento[ n ] == 'a' || argumento[ n ] == 'b' || argumento[ n ] == 'o' || argumento[ n ] == '\u002A'  ) 
             contador++;
     }
     if (contador == argumento.length())
@@ -68,7 +71,7 @@ bool CondicionDelLenguaje(string argumento){
   if (argumento[0]=='a')
     {
     for(size_t n =1; n < argumento.length()-1; n++){
-      if(argumento[n] == '*')
+      if(argumento[n] == '\u2217')
         return false;
       }
     }
