@@ -10,3 +10,5 @@ CTestTestfile.cmake
 _deps
 nbproject
 dist
+.vscode
+build
