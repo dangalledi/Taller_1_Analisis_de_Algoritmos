@@ -44,10 +44,10 @@ int main( int argc, char* argv[] ) {
           cout << afirmacion << endl;
           afirmacion = conmutacion(afirmacion);
           cout << afirmacion << endl;
-          afirmacion = limpiarBasura(afirmacion);
           aux++;
         }
-         cout << afirmacion << endl;
+          afirmacion = limpiarBasura(afirmacion);
+          cout << afirmacion << endl;
 
         
     }
@@ -206,21 +206,21 @@ string tautologia (string argumento) // p && p = p // q||q =q // ~p && ~p = ~p /
   {
     if (((argumento[i]== '|') && (argumento[i+1]== '|')) || ((argumento[i]== '&') && (argumento[i+1]== '&')) )
     {
-      if ((argumento[i-1]== 'p') && (argumento[i+2]== 'p'))
+      if ((argumento[i-1]== 'p') && (argumento[i+2]== 'p') && (argumento[i-2]!= '~'))
       {
         argumento[i-1] = 'p';
         argumento[i] = ' ';
         argumento[i+1] = ' ';
         argumento[i+2] = ' ';
       }
-      if ((argumento[i-1]== 'q') && (argumento[i+2]== 'q'))
+      if ((argumento[i-1]== 'q') && (argumento[i+2]== 'q') && (argumento[i-2]!= '~'))
       {
         argumento[i-1] = 'q';
         argumento[i] = ' ';
         argumento[i+1] = ' ';
         argumento[i+2] = ' ';
       }
-      if ((argumento[i-1]== 'r') && (argumento[i+2]== 'r'))
+      if ((argumento[i-1]== 'r') && (argumento[i+2]== 'r') && (argumento[i-2]!= '~'))
       {
         argumento[i-1] = 'r';
         argumento[i] = ' ';
