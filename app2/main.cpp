@@ -13,6 +13,7 @@ string agregary(string argumento);
 string morgan(string argumento);
 string tautologia (string argumento);
 string negacionsimple(string argumento);
+string conmutacion(string argumento);
 
 
 int main( int argc, char* argv[] ) {
@@ -269,4 +270,30 @@ string negacionsimple(string argumento)// imple negacion ~[q bla bla bla] = ~q ~
     }
   }
   return palabra;
+}
+
+string conmutacion(string argumento)
+{
+  for (int i=0; i< (argumento.length()-1) ; i++ )
+  {
+    if(((argumento[i] == '&') && (argumento[i+1] == '&')) || ((argumento[i] == '|') && (argumento[i+1] == '|')))
+    {
+      if (argumento[i-1] == 'p' && argumento[i+2] == 'q')
+      {
+        argumento[i-1] = 'q';
+        argumento[i+2] = 'p';
+      }
+      if (argumento[i-1] == 'r' && argumento[i+2] == 'q')
+      {
+        argumento[i-1] = 'q';
+        argumento[i+2] = 'r';
+      }
+      if (argumento[i-1] == 'p' && argumento[i+2] == 'r')
+      {
+        argumento[i-1] = 'r';
+        argumento[i+2] = 'p';
+      }
+    }
+  }
+  return argumento;
 }
