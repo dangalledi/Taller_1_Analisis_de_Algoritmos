@@ -23,32 +23,23 @@ string transposicion(string argumento); // regla aun no implementada
 
 int main( int argc, char* argv[] ) {
 
-    if (argc == 2) //falta su for y limpiar " " "()" "[]"
+    if (argc == 2) 
     {
         // @TODO programar proyecto
         string afirmacion = argv[1];  // char -> string 
-        afirmacion = limpiarBlancos(afirmacion);//falta quitar espacios iniciales
-        cout << afirmacion << endl;
+        afirmacion = limpiarBlancos(afirmacion);// quita espacios iniciales
         int aux = 0;
         while(aux< 6)
         {
           afirmacion = implicacion(afirmacion);
-          cout << afirmacion << endl;
           afirmacion = morgan( afirmacion);
-          cout << afirmacion << endl;
           afirmacion = tautologia (afirmacion);
-          cout << afirmacion << endl;
           afirmacion = negacionsimple(afirmacion);
-          cout << afirmacion << endl;
           afirmacion = dobleNegacion(afirmacion);
-          cout << afirmacion << endl;
           afirmacion = conmutacion(afirmacion);
-          cout << afirmacion << endl;
           aux++;
         }
-          afirmacion = limpiarBasura(afirmacion);
-          cout << afirmacion << endl;
-
+        afirmacion = limpiarBasura(afirmacion);
         
     }
     else
